@@ -1,6 +1,6 @@
-# downlinking
+# Downlinking
 
-Questions
+### Questions
 
 We want to ask the following questions about each transmission in our dataset:
 
@@ -12,7 +12,7 @@ How many bits are in the transmission?
 
 What is the message being sent (in binary)?
 
-Timeseries traces
+### Timeseries traces
 
 Let’s generate some data first.
 
