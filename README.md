@@ -47,7 +47,7 @@ The dataframe we’re using has time in one-second increments as its index. Each
 
 This is a transactional dataframe, or a list of individual observations. Each row corresponds to one signal value. 
 
-Visualizing the trace
+### Visualizing the trace
 
 We can plot a column this way:
 
