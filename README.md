@@ -64,8 +64,9 @@ Building blocks
 
 We first want to record when the signal value changes. 
 
+```
 df['rpm_changed'] = ((df['rpm'] != 0) & (df['rpm'].diff() > 0)).astype(int)
-
+```
 
 
 This boolean flag goes to 1 when the rpm value starts above 0 and quickly switches to a new value. 
@@ -78,15 +79,18 @@ We’ll often use the cumsum() function to keep a running count of the number of
 
 Finally, we want to record the number of times the rpm has changed within a rolling window long enough to cover the downlink period.
 
+```
 df['change_counts_downlink_width'] = df['rpm_changed'].rolling((2*60), center=False).sum()
 df['change_counts_downlink_width_reverse'] = df[::-1]['rpm_changed'].rolling((2*60), center=False).sum()[::-1]
-
+```
 (discuss rolling window)
 
 Identify downlinks
 
+```
 df['downlink'] = ((df['change_counts_downlink_width'] > 0) & (df['change_counts_downlink_width_reverse'] > 0)).astype(int)
 df['downlink_num'] = (df['downlink'].astype(int).diff() == 1).cumsum() 
+```
 
 The downlink flag tells us whether we are currently in a downlink or not. If both change counts are greater than 0, we are in a downlink. 
 
@@ -112,8 +116,6 @@ df['high_point'] = df[df['downlink'] == 1].groupby('downlink_num').transform('ma
 df['low_point'] = df[df['downlink'] == 1].groupby('downlink_num').transform('min')['rpm']
 
 We use groupby here to identify the high and low points per downlink number, and transform to write this back into the original dataframe.
-
-(explain groupby)
 
 Groupby allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe. Using groupby allows us to get this. 
 
