@@ -51,13 +51,14 @@ Visualizing the trace
 
 We can plot a column this way:
 
+```
 %matplotlib inline
 
 plt.figure(figsize=(15,3))
 plt.xlabel('Time in seconds')
 plt.ylabel('Device RPM')
 df['rpm'].plot()
-
+```
 
 
 ### Building blocks
