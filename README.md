@@ -60,7 +60,7 @@ df['rpm'].plot()
 
 
 
-Building blocks
+### Building blocks
 
 We first want to record when the signal value changes. 
 
@@ -85,7 +85,7 @@ df['change_counts_downlink_width_reverse'] = df[::-1]['rpm_changed'].rolling((2*
 ```
 (discuss rolling window)
 
-Identify downlinks
+### Identify downlinks
 
 ```
 df['downlink'] = ((df['change_counts_downlink_width'] > 0) & (df['change_counts_downlink_width_reverse'] > 0)).astype(int)
@@ -110,12 +110,14 @@ change width
 
 
 
-Groupby/transform
+### Groupby/transform
 
+```
 df['high_point'] = df[df['downlink'] == 1].groupby('downlink_num').transform('max')['rpm']
 df['low_point'] = df[df['downlink'] == 1].groupby('downlink_num').transform('min')['rpm']
+```
 
 We use groupby here to identify the high and low points per downlink number, and transform to write this back into the original dataframe.
 
-Groupby allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe. Using groupby allows us to get this. 
+Groupby allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe. 
 
