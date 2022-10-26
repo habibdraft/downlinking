@@ -16,6 +16,7 @@ What is the message being sent (in binary)?
 
 Let’s generate some data first.
 
+```
 rpm = [0 for i in range(5000)]
 df = pd.DataFrame()
 df['rpm'] = rpm
@@ -40,6 +41,7 @@ generate_downlink(3830, 4160, 30, 50, up=True)
 generate_downlink(1190, 1250, 60, 50, up=False)
 generate_downlink(1370, 1430, 60, 50, up=False)
 generate_downlink(3920, 3980, 60, 50, up=False)
+```
 
 The dataframe we’re using has time in one-second increments as its index. Each signal value is recorded over a one-second interval.
 
