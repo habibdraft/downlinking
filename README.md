@@ -1,28 +1,8 @@
 # Downlinking
 
-### Questions
+### Introduction
 
-diff()
-
-The amount that a value has changed between one row and the next.
-
-sum()
-
-Aggregate function that gives us the sum of some specified group of rows.
-
-min(), max()
-
-cumsum()
-
-Keeps track of the running sum between rows. We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
-
-rolling()
-
-groupby()
-
-Allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe.
-
-transform()
+We're interpreting a signal sent from one device to another in the form of changes in value to a timeseries trace. 
 
 ### Timeseries traces
 
@@ -74,6 +54,18 @@ df['rpm'].plot()
 
 
 ### Building blocks
+
+cumsum()
+
+Keeps track of the running sum between rows. We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
+
+rolling()
+
+groupby()
+
+Allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe.
+
+transform()
 
 We first want to record when the signal value changes. 
 
