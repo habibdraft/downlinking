@@ -74,7 +74,9 @@ This boolean flag goes to 1 when the rpm value starts above 0 and quickly switch
 
 Next we want to  count the number of times this kind of change happens. 
 
+```
 df['change_num'] = df['rpm_changed'].cumsum().astype(int)
+```
 
 We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
 
