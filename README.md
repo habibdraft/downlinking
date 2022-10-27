@@ -90,7 +90,7 @@ Finally, we want to record the number of times the rpm has changed within a roll
 df['change_counts_downlink_width'] = df['rpm_changed'].rolling((2*60), center=False).sum()
 df['change_counts_downlink_width_reverse'] = df[::-1]['rpm_changed'].rolling((2*60), center=False).sum()[::-1]
 ```
-(discuss rolling window)
+The rolling window gives us a sum of the number of times the rpm has changed within the 120 second time period we’ve chosen to look at. We can use rolling windows to identify a sustained period of activity over a stretch of time. 
 
 ### Identify downlinks
 
