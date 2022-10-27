@@ -55,10 +55,6 @@ df['rpm'].plot()
 
 ### Building blocks
 
-cumsum()
-
-Keeps track of the running sum between rows. We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
-
 rolling()
 
 groupby()
@@ -73,10 +69,13 @@ We first want to record when the signal value changes.
 df['rpm_changed'] = ((df['rpm'] != 0) & (df['rpm'].diff() > 0)).astype(int)
 ```
 
-
 This boolean flag goes to 1 when the rpm value starts above 0 and quickly switches to a new value. 
 
 Next we want to  count the number of times this kind of change happens. 
+
+cumsum()
+
+Keeps track of the running sum between rows. We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
 
 ```
 df['change_num'] = df['rpm_changed'].cumsum().astype(int)
