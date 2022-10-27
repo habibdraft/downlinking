@@ -2,15 +2,27 @@
 
 ### Questions
 
-We want to ask the following questions about each transmission in our dataset:
+diff()
 
-What is the length of the longest and shortest bit?
+The amount that a value has changed between one row and the next.
 
-How long is the transmission in seconds?
+sum()
 
-How many bits are in the transmission?
+Aggregate function that gives us the sum of some specified group of rows.
 
-What is the message being sent (in binary)?
+min(), max()
+
+cumsum()
+
+Keeps track of the running sum between rows. We’ll often use the cumsum() function to keep a running count of the number of times something has happened so far. 
+
+rolling()
+
+groupby()
+
+Allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe.
+
+transform()
 
 ### Timeseries traces
 
