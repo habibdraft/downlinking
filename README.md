@@ -127,3 +127,4 @@ We use groupby here to identify the high and low points per downlink number, and
 
 Groupby allows us to perform aggregate functions on groups of rows separately instead of the entire dataframe. In this case we want the maximum rpm value per connection, not the maximum rpm value of the entire dataframe. 
 
+[Related Medium article](https://towardsdev.com/data-science-use-case-pattern-matching-59ff8709f85d).
