@@ -54,5 +54,5 @@ df['index'] = df.index
 df['change_num_index'] = np.where((df['change_num'].diff() != 0), df['index'], np.nan)
 df['change_num_index'].ffill(inplace=True)
 df['change_num_index_diff'] = df['change_num_index'].diff()
-df['bit_length'] = np.where((df['change_num_index_diff'] >= 30) & 
+df['signal_incremental_length'] = np.where((df['change_num_index_diff'] >= 30) & 
                             (df['change_num_index_diff'] <= 60), df['change_num_index_diff'], 0)
